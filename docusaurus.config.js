@@ -11,7 +11,7 @@ const config = {
   title: "Lyra✨",
   tagline: "An immutable, edge, full-text search engine",
   url: "https://nearform.github.io",
-  baseUrl: "/lyra/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "/img/lyra.svg",
