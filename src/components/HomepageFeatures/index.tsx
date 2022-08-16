@@ -51,7 +51,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <LyraVideo embedId="MGpwKsdZmG0" />
+        <LyraVideo embedId="MGpwKsdZmG0?start=400" />
         <div className={clsx('row', styles.mt_4)}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
