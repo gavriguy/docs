@@ -38,7 +38,7 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/LyraSearch/docs/edit/main/docs",
+          editUrl: "https://github.com/LyraSearch/docs/edit/main/",
           routeBasePath: '/', // Set this value to '/'.
         },
         blog: false,
