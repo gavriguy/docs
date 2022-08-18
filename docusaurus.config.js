@@ -38,13 +38,13 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/nearform/lyra/edit/main/packages/docs/",
+          editUrl: "https://github.com/lyrasearch/docs/edit/main/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/nearform/lyra/edit/main/packages/docs/",
+          editUrl: "https://github.com/lyrasearch/docs/edit/main/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -66,6 +66,11 @@ const config = {
             docId: "introduction/getting-started",
             position: "left",
             label: "Getting Started",
+          },
+          {
+            href: "/docs/category/plugins",
+            position: "left",
+            label: "Plugins",
           },
           {
             href: "/demo",
