@@ -10,7 +10,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Lyra✨",
   tagline: "An immutable, edge, full-text search engine",
-  url: "https://nearform.github.io",
+  url: "https://docs.lyrajs.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -38,14 +38,10 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/nearform/lyra/edit/main/packages/docs/",
+          editUrl: "https://github.com/LyraSearch/docs/edit/main/docs",
+          routeBasePath: '/', // Set this value to '/'.
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/nearform/lyra/edit/main/packages/docs/",
-        },
+        blog: false,
         theme: {
           customCss: "./src/css/custom.css",
         },
