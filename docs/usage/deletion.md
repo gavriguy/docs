@@ -63,7 +63,7 @@ const { id: harryPotter } = insert(movieDB, {
 
 ## Delete
 
-To delete a single document from the database we use the <a href="/docs/usage/insert-data#doc-ids" >Document ID</a> exposed by the **insert** method.
+To delete a single document from the database we use the <a href="/usage/insert-data#doc-ids" >Document ID</a> exposed by the **insert** method.
 
 ```js title="lyra.js"
 remove(movieDB, harryPotter);

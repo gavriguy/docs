@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import style from "./video.module.css"
 
 // utils
-import { YoutubeProps } from "../../../../utils/types";
+import { YoutubeProps } from "../../../utils/types";
 
 const LyraVideo = ({ embedId }: YoutubeProps): JSX.Element => (
   <div className={style.youtube}>

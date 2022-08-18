@@ -20,7 +20,7 @@ export const Highlight = ({children, color}) => (
 
 Whenever we create a database with Lyra we must specify a `Schema`, which represents the entry we are going to insert.
 
-> <small>If you don't know how to create a lyra database, <a href="/docs/usage/creating-a-new-lyra-instance">go check it out</a> before proceeding.</small>
+> <small>If you don't know how to create a lyra database, <a href="/usage/creating-a-new-lyra-instance">go check it out</a> before proceeding.</small>
 
 Our database and schema look like this:
 
@@ -74,7 +74,7 @@ The **insert** method takes two mandatory parameters:
 1. the `database` in which we want the insertion to occur
 2. the `document` to insert (which must abide to the specified **schema**)
 
-The optional parameters can be configuration properties (e.g. <a href="/docs/usage/creating-a-new-lyra-instance#input-analyzer">the override</a> of the default language for the given document).
+The optional parameters can be configuration properties (e.g. <a href="/usage/creating-a-new-lyra-instance#input-analyzer">the override</a> of the default language for the given document).
 
 ```js title="lyra.js"
 insert(movieDB, myDocument, { language: 'spanish' });
