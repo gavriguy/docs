@@ -24,5 +24,5 @@ As for now, the official plugins are:
 
 - `plugin-data-persistence`
   ([repo](https://github.com/lyrasearch/plugin-data-persistence),
-  [docs](/docs/plugins/plugin-data-persistence))
+  [docs](/plugins/plugin-data-persistence))
 - `plugin-astro` (under development)

@@ -64,7 +64,7 @@ const config = {
             label: "Getting Started",
           },
           {
-            href: "/docs/category/plugins",
+            href: "/category/plugins",
             position: "left",
             label: "Plugins",
           },
