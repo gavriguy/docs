@@ -89,15 +89,15 @@ Now we have a Lyra instance containing three quotes. We can use the
 `plugin-data-persistence` plugin to save the database to a file:
 
 ```js title="Save database to file"
-import { persist } from '@lyrasearch/plugin-data-persistence'
+import { persistToFile } from '@lyrasearch/plugin-data-persistence'
 
-const filePath = persist(originalInstance, 'binary', './quotes.msp')
+const filePath = persistToFile(originalInstance, 'binary', './quotes.msp')
 ```
 
-When bumping the database to disk, the `persist` method will return the path of
+When bumping the database to disk, the `persistToFile` method will return the path of
 the file that was created.
 
-The `persist` method accepts three parameters:
+The `persistToFile` method accepts three parameters:
 
 - `instance`: the Lyra instance to persist
 - `format`: the format to use when persisting the database, one of:
@@ -113,12 +113,12 @@ The `persist` method accepts three parameters:
 ## Restoring the database from disk
 
 Once a file has been saved to disk, you can restore the database using the
-`restore` method:
+`restoreFromFile` method:
 
 ```js title="Restore database from file"
-import { restore } from '@lyrasearch/plugin-data-persistence'
+import { restoreFromFile } from '@lyrasearch/plugin-data-persistence'
 
-const restoredInstance = restore('binary', './quotes.msp')
+const restoredInstance = restoreFromFile('binary', './quotes.msp')
 
 // You can now perform search on the newly restored database
 search(restoredInstance, {
@@ -126,7 +126,7 @@ search(restoredInstance, {
 })
 ```
 
-The `restore` method accepts two parameter:
+The `restoreFromFile` method accepts two parameter:
 
 - `format`: the format used to serialize and compress the database, one of:
   - `binary`
@@ -142,22 +142,22 @@ mode.
 The APIs are the same as the ones above:
 
 ```js title="In-memory persistence"
-import { persist } from '@lyrasearch/plugin-data-persistence'
+import { exportInstance } from '@lyrasearch/plugin-data-persistence'
 
-const serializedData = persist(originalInstance, 'binary')
+const serializedData = exportInstance(originalInstance, 'binary')
 ```
 
-One difference to notice is that while the `persist` method, when used in a
+One difference to notice is that while the `exportInstance` method, when used in a
 runtime such as Node.js or Bun, returns the path of the saved file, on the
-browser the `persist` method returns the serialized data.
+browser the `exportInstance` method returns the serialized data.
 
 You can save this data wherever you want and later restore it using the
-`restore` method:
+`importInstance` method:
 
 ```js title="Restore in-memory database"
-import { restore } from '@lyrasearch/plugin-data-persistence'
+import { importInstance } from '@lyrasearch/plugin-data-persistence'
 
-const restoredInstance = restore('binary', serializedData)
+const restoredInstance = importInstance('binary', serializedData)
 
 search(restoredInstance, {
   term: 'free'
