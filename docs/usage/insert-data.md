@@ -4,28 +4,22 @@ sidebar_position: 2
 
 # Insert Data
 
-export const Highlight = ({children, color}) => (
-  <span
-    style={{
-      backgroundColor: color,
-      borderRadius: '8px',
-      color: '#fff',
-      padding: '10px',
-      cursor: 'pointer',
-    }}
-    >
-    {children}
-  </span>
-);
+export const Highlight = ({children, color}) => ( <span style={{
+backgroundColor: color, borderRadius: '8px', color: '#fff', padding: '10px',
+cursor: 'pointer', }} > {children}
+</span> );
 
-Whenever we create a database with Lyra we must specify a `Schema`, which represents the entry we are going to insert.
+Whenever we create a database with Lyra we must specify a `Schema`, which
+represents the entry we are going to insert.
 
-> <small>If you don't know how to create a lyra database, <a href="/usage/creating-a-new-lyra-instance">go check it out</a> before proceeding.</small>
+> <small>If you don't know how to create a lyra database,
+> <a href="/usage/creating-a-new-lyra-instance">go check it out</a> before
+> proceeding.</small>
 
 Our database and schema look like this:
 
 ```js title="lyra.js"
-import { create, insert } from '@nearform/lyra'; 
+import { create, insert } from '@lyrasearch/lyra'; 
 
 const movieDB = create({
   schema: {
@@ -37,9 +31,12 @@ const movieDB = create({
   }
 });
 ```
-> Notice that we are now also **importing** the `insert` method to do our insertions.
+
+> Notice that we are now also **importing** the `insert` method to do our
+> insertions.
 
 ## Insert
+
 Data insertion in Lyra is quick and intuitive:
 
 ```js title="lyra.js"
@@ -69,21 +66,26 @@ const { id: harryPotter } = insert(movieDB, {
 ```
 
 ### Parameters
-The **insert** method takes two mandatory parameters: 
+
+The **insert** method takes two mandatory parameters:
 
 1. the `database` in which we want the insertion to occur
 2. the `document` to insert (which must abide to the specified **schema**)
 
-The optional parameters can be configuration properties (e.g. <a href="/usage/creating-a-new-lyra-instance#input-analyzer">the override</a> of the default language for the given document).
+The optional parameters can be configuration properties (e.g.
+<a href="/usage/creating-a-new-lyra-instance#input-analyzer">the override</a> of
+the default language for the given document).
 
 ```js title="lyra.js"
 insert(movieDB, myDocument, { language: 'spanish' });
 ```
+
 <hr/>
 
 ### <Highlight color="#ff5b9b">Doc IDs</Highlight>
 
 The **insert** method returns a unique `id` for the inserted document.
+
 ```js
-console.log(harryPotter) // 79741872-5
+console.log(harryPotter); // 79741872-5
 ```

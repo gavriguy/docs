@@ -1,29 +1,20 @@
 ---
 sidebar_position: 4
 ---
+
 # Delete Data
 
-export const Highlight = ({children, color}) => (
-  <span
-    style={{
-      backgroundColor: color,
-      borderRadius: '20px',
-      color: '#fff',
-      padding: '10px',
-      cursor: 'pointer',
-    }}
-    onClick={() => {
-      alert(`You clicked the color ${color} with label ${children}`);
-    }}>
-    {children}
-  </span>
-);
+export const Highlight = ({children, color}) => ( <span style={{
+backgroundColor: color, borderRadius: '20px', color: '#fff', padding: '10px',
+cursor: 'pointer', }} onClick={() => {
+alert(`You clicked the color ${color} with label ${children}`); }}> {children}
+</span> );
 
-Deletion is one of the easiest things to do in Lyra.<br/>
-Let's say we have the following database with the following inserted documents:
+Deletion is one of the easiest things to do in Lyra.<br/> Let's say we have the
+following database with the following inserted documents:
 
 ```js title="lyra.js"
-import { create, insert, search, remove } from '@nearform/lyra'; 
+import { create, insert, search, remove } from '@lyrasearch/lyra'; 
 
 const movieDB = create({
   schema: {
@@ -59,15 +50,19 @@ const { id: harryPotter } = insert(movieDB, {
   isFavorite: false
 });
 ```
+
 > Notice that we are also importing the **`remove`** method
 
 ## Delete
 
-To delete a single document from the database we use the <a href="/usage/insert-data#doc-ids" >Document ID</a> exposed by the **insert** method.
+To delete a single document from the database we use the
+<a href="/usage/insert-data#doc-ids" >Document ID</a> exposed by the **insert**
+method.
 
 ```js title="lyra.js"
 remove(movieDB, harryPotter);
 ```
+
 As simple as that.
 
 ### Parameters

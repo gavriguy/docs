@@ -7,7 +7,7 @@ specifiers:
   '@docusaurus/preset-classic': 2.0.1
   '@docusaurus/types': 2.0.1
   '@mdx-js/react': ^1.6.22
-  '@nearform/lyra': latest
+  '@lyrasearch/lyra': latest
   '@tsconfig/docusaurus': ^1.0.5
   '@types/react': ^18.0.0
   clsx: ^1.2.1
@@ -22,7 +22,7 @@ dependencies:
   '@docusaurus/core': 2.0.1_aoyvzlomggvyirsrnkx2lqkjiy
   '@docusaurus/preset-classic': 2.0.1_ind54bwlsfvgd4pz4wkkelf5qu
   '@mdx-js/react': 1.6.22_react@17.0.2
-  '@nearform/lyra': 0.0.4
+  '@lyrasearch/lyra': 0.0.4
   clsx: 1.2.1
   prism-react-renderer: 1.3.5_react@17.0.2
   prop-types: 15.8.1
@@ -2317,7 +2317,7 @@ packages:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: false
 
-  /@nearform/lyra/0.0.4:
+  /@lyrasearch/lyra/0.0.4:
     resolution: {integrity: sha512-X1Z553Ku+6nBkwW3zZ6aPAFLu6MmOkysUE7WpPAJYuEE5zgDLh2pGLy4NVPeTaIg3iBJvhLX4atz/lrJwEj4rQ==}
     dev: false
 

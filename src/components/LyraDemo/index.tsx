@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 // Had to manually import the ESM vesrion to satisfy GitHub actions requirements
-import { create, formatNanoseconds, insert, search } from "@nearform/lyra/dist/esm/lyra";
+import {
+  create,
+  formatNanoseconds,
+  insert,
+  search,
+} from "@lyrasearch/lyra/dist/esm/lyra";
 import dataset from "./events";
 import styles from "./style.module.css";
 
@@ -44,20 +49,34 @@ function formatNumber(number: number) {
   return number.toLocaleString();
 }
 
-function Header({ count, percentageLoaded }: { count: number, percentageLoaded: number }) {
+function Header(
+  { count, percentageLoaded }: { count: number; percentageLoaded: number },
+) {
   return (
     <>
-      <div className={`${styles.hero} ${percentageLoaded === 1 ? styles.heroCompleted : ''}  `}>
+      <div
+        className={`${styles.hero} ${
+          percentageLoaded === 1 ? styles.heroCompleted : ""
+        }  `}
+      >
         <div className={styles.heroContent}>
-          <h1> Try Lyra </h1>
-          <p> Type a search term to perform a full-text search on a dataset of {formatNumber(count)} hystorical events </p>
+          <h1>Try Lyra</h1>
+          <p>
+            Type a search term to perform a full-text search on a dataset of
+            {" "}
+            {formatNumber(count)} hystorical events
+          </p>
         </div>
       </div>
-      
+
       <div className={styles.loadingBarContainer}>
-        <div className={styles.loadingBar} style={{
-            width: (percentageLoaded *100 )+ "%"
-        }}></div>
+        <div
+          className={styles.loadingBar}
+          style={{
+            width: (percentageLoaded * 100) + "%",
+          }}
+        >
+        </div>
       </div>
     </>
   );
@@ -75,7 +94,10 @@ export function LyraDemo() {
   useEffect(() => {
     function addDocuments() {
       // We use Random here just to show a nice UI to the user
-      const batch = dataset.result.events.splice(0, 300 + Math.floor(Math.random() * 1000));
+      const batch = dataset.result.events.splice(
+        0,
+        300 + Math.floor(Math.random() * 1000),
+      );
 
       if (!batch.length) {
         setIndexing(0);
@@ -94,7 +116,7 @@ export function LyraDemo() {
         });
       }
 
-      setIndexing(indexing => indexing - batch.length);
+      setIndexing((indexing) => indexing - batch.length);
       requestAnimationFrame(addDocuments);
     }
 
@@ -122,11 +144,15 @@ export function LyraDemo() {
   if (indexing > 0) {
     return (
       <>
-        <Header count={dataset.result.count} percentageLoaded={(dataset.result.count - indexing) / dataset.result.count} />
+        <Header
+          count={dataset.result.count}
+          percentageLoaded={(dataset.result.count - indexing) /
+            dataset.result.count}
+        />
         <div className={styles.container}>
           <div className={styles.loading}>
             <h2>
-              Indexing <strong>{formatNumber(indexing)} </strong> events
+              Indexing <strong>{formatNumber(indexing)}</strong> events
             </h2>
             <p>We will get back to you shortly ...</p>
           </div>
@@ -144,7 +170,7 @@ export function LyraDemo() {
           id="term"
           type="text"
           value={term}
-          onChange={e => setTerm(e.target.value)}
+          onChange={(e) => setTerm(e.target.value)}
           className={styles.input}
           placeholder="Type a search term here..."
           tabIndex={0}
@@ -153,18 +179,32 @@ export function LyraDemo() {
         <div className={styles.configurations}>
           <div className={styles.configuration}>
             <label htmlFor="exact">Exact</label>
-            <select id="exact" value={exact.toString()} onChange={() => setExact(exact => !exact)}>
+            <select
+              id="exact"
+              value={exact.toString()}
+              onChange={() => setExact((exact) => !exact)}
+            >
               <option value={"false"}>No</option>
               <option value={"true"}>Yes</option>
             </select>
           </div>
           <div className={styles.configuration}>
             <label htmlFor="limit">Limit</label>
-            <input id="limit" type="number" value={limit} onChange={e => setLimit(parseInt(e.target.value))} />
+            <input
+              id="limit"
+              type="number"
+              value={limit}
+              onChange={(e) => setLimit(parseInt(e.target.value))}
+            />
           </div>
           <div className={styles.configuration}>
             <label htmlFor="offset">Offset</label>
-            <input id="offset" type="number" value={offset} onChange={e => setOffset(parseInt(e.target.value))} />
+            <input
+              id="offset"
+              type="number"
+              value={offset}
+              onChange={(e) => setOffset(parseInt(e.target.value))}
+            />
           </div>
           <div className={styles.configuration}>
             <label htmlFor="tolerance">Typo tolerance</label>
@@ -174,7 +214,7 @@ export function LyraDemo() {
               value={tolerance}
               max={3}
               min={0}
-              onChange={e => setTolerance(parseInt(e.target.value))}
+              onChange={(e) => setTolerance(parseInt(e.target.value))}
             />
           </div>
         </div>
@@ -182,7 +222,8 @@ export function LyraDemo() {
         {results && (
           <>
             <h2>
-              Found <strong>{results.count} results</strong> in <strong>{formatNanoseconds(results.elapsed)}</strong>
+              Found <strong>{results.count} results</strong> in{" "}
+              <strong>{formatNanoseconds(results.elapsed)}</strong>
             </h2>
 
             <div className={styles.overflow}>
@@ -199,14 +240,30 @@ export function LyraDemo() {
                     </div>
                     <div className={styles.resultHeaderColumn}>
                       <span className={styles.id}>
-                        Category 1: <strong dangerouslySetInnerHTML={{__html: result.categories.category1}}></strong>
+                        Category 1:{" "}
+                        <strong
+                          dangerouslySetInnerHTML={{
+                            __html: result.categories.category1,
+                          }}
+                        >
+                        </strong>
                       </span>
                       <span className={styles.id}>
-                        Category 2: <strong dangerouslySetInnerHTML={{__html: result.categories.category2}}></strong>
+                        Category 2:{" "}
+                        <strong
+                          dangerouslySetInnerHTML={{
+                            __html: result.categories.category2,
+                          }}
+                        >
+                        </strong>
                       </span>
                     </div>
                   </header>
-                  <span className={styles.txt} dangerouslySetInnerHTML={{ __html: result.description }}></span>
+                  <span
+                    className={styles.txt}
+                    dangerouslySetInnerHTML={{ __html: result.description }}
+                  >
+                  </span>
                 </div>
               ))}
             </div>
