@@ -1,50 +1,41 @@
 ---
-description: Astro integration for Lyra
+description: >-
+  The plugin-astro plugin allows you to index the content of your Astro websites
+  and offer text search to your visitors.
 ---
 
 # Astro plugin
-
-[![Tests](https://github.com/LyraSearch/plugin-astro/actions/workflows/tests.yml/badge.svg)](https://github.com/LyraSearch/plugin-astro/actions/workflows/tests.yml)
-[![GitHub Repo stars](https://img.shields.io/github/stars/lyrasearch/plugin-astro?style=social)](https://github.com/lyrasearch/plugin-astro)
-
-The `plugin-astro` plugin allows you to index the content of your Astro websites
-and offer text search to your visitors.
-
-## Index
-
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Configuring Astro integration](#configuring-astro-integration)
-  - [Loading the DB on client-side](#loading-the-db-on-client-side)
 
 ## Installation
 
 You can install the plugin using any major Node.js/Bun package manager:
 
-```bash title="Install with npm"
+{% code title="Using npm" %}
+```bash
 npm install --save @lyrasearch/plugin-astro
 ```
+{% endcode %}
 
-```bash title="Install with yarn"
+{% code title="Using Yarn" %}
+```bash
 yarn add @lyrasearch/plugin-astro
 ```
+{% endcode %}
 
-```bash title="Install with pnpm"
+{% code title="Using pnpm" %}
+```bash
 pnpm add @lyrasearch/plugin-astro
 ```
-
-Deno installation guide will be available soon.
+{% endcode %}
 
 ## Usage
 
 There are two main aspects to consider when using this plugin:
 
-- DB generation
-- Loading DBs & performing searches
+* DB generation
+* Loading DBs & performing searches
 
-### Configuring Astro integration
-
-```js
+```javascript
 // In `astro.config.mjs`
 import lyra from "@lyrasearch/plugin-astro";
 
@@ -69,14 +60,11 @@ export default defineConfig({
 });
 ```
 
-When running the `astro build` command, a new DB file will be persisted in the
-`dist/assets` directory. For the particular case of this example, it will be
-saved in the file `dist/assets/lyraDB_mydb.json`.
+When running the `astro build` command, a new DB file will be persisted in the `dist/assets` directory. For the particular case of this example, it will be saved in the file `dist/assets/lyraDB_mydb.json`.
 
-### Loading the DB on client-side
+## Loading the DB on client-side[​](https://docs.lyrajs.io/plugins/plugin-astro#loading-the-db-on-client-side) <a href="#loading-the-db-on-client-side" id="loading-the-db-on-client-side"></a>
 
-To use the generated DBs in your pages, you can include a script in your
-`<head>` section, as the following one:
+To use the generated DBs in your pages, you can include a script in your `<head>` section, as the following one:
 
 ```html
 <head>
@@ -97,6 +85,4 @@ To use the generated DBs in your pages, you can include a script in your
 </head>
 ```
 
-For now, the plugin only expose load & search functionality on the client side,
-but we might expose other Lyra features as soon as we stabilise some internal
-details and public APIs.
+For now, the plugin only expose load & search functionality on the client side, but we might expose other Lyra features as soon as we stabilise some internal details and public APIs.

@@ -1,19 +1,8 @@
----
-sidebar_position: 4
----
+# Delete data
 
-# Delete Data
+Deletion is one of the easiest things to do in Lyra. Let's say we have the following database with the following inserted documents:
 
-export const Highlight = ({children, color}) => ( <span style={{
-backgroundColor: color, borderRadius: '20px', color: '#fff', padding: '10px',
-cursor: 'pointer', }} onClick={() => {
-alert(`You clicked the color ${color} with label ${children}`); }}> {children}
-</span> );
-
-Deletion is one of the easiest things to do in Lyra.<br/> Let's say we have the
-following database with the following inserted documents:
-
-```js title="lyra.js"
+```javascript
 import { create, insert, search, remove } from '@lyrasearch/lyra'; 
 
 const movieDB = create({
@@ -51,23 +40,14 @@ const { id: harryPotter } = insert(movieDB, {
 });
 ```
 
-> Notice that we are also importing the **`remove`** method
+{% hint style="info" %}
+Notice that we are also importing the `remove` method
+{% endhint %}
 
-## Delete
+To delete a single document from the database we use the:
 
-To delete a single document from the database we use the
-<a href="/usage/insert-data#doc-ids" >Document ID</a> exposed by the **insert**
-method.
-
-```js title="lyra.js"
+```javascript
 remove(movieDB, harryPotter);
 ```
 
 As simple as that.
-
-### Parameters
-
-The `remove` method accepts two mandatory parameters.
-
-1. the `database` in which the deletion should occur.
-2. the `id` of the document to be deleted.

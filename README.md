@@ -1,133 +1,41 @@
-![Lyra](https://raw.githubusercontent.com/LyraSearch/lyra/main/misc/lyra-edge-logo.png)
+# Introduction
 
-[![Tests](https://github.com/nearform/lyra/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/nearform/lyra/actions/workflows/tests.yml)
+Lyra is an **immutable, runtime-agnostic, edge, and in-memory full-text search engine** that works both on client and server.
 
-Try the [live demo](https://lyrajs.io/demo)
+Through implementing an optimized prefix tree and some clever tweaks, Lyra can perform searches through millions of entries in **microseconds**.
 
-# Installation
+{% embed url="https://www.youtube.com/watch?v=42sMkbGLlh4" %}
 
-You can install Lyra using `npm`, `yarn`, `pnpm`:
+## Requirements
 
-```sh
-npm i @lyrasearch/lyra
+A JavaScript runtime is the **only** requirement. Lyra has been designed to work on any runtime and has no dependencies.
+
+## Installation
+
+You can install Lyra using npm, yarn, pnpm:
+
+```bash
+npm install @lyrasearch/lyra
 ```
 
-```sh
+```bash
 yarn add @lyrasearch/lyra
 ```
 
-```sh
+```bash
 pnpm add @lyrasearch/lyra
 ```
 
-# Usage
+Or import it directly in a browser module:
 
-Lyra is quite simple to use. The first thing to do is to create a new database
-instance and set an indexing schema:
+```html
+<html>
+  <body>
+    <script type="module">
+      import { create, search, insert } from "https://unpkg.com/@lyrasearch/lyra@latest/dist/esm/src/lyra.js";
 
-```js
-import { create, insert, remove, search } from "@lyrasearch/lyra";
-
-const db = create({
-  schema: {
-    author: "string",
-    quote: "string",
-  },
-});
+      // ...
+    </script>
+  </body>
+</html>
 ```
-
-Lyra will only index string properties, but will allow you to set and store
-additional data if needed.
-
-Once the db instance is created, you can start adding some documents:
-
-```js
-insert(db, {
-  quote:
-    "It is during our darkest moments that we must focus to see the light.",
-  author: "Aristotle",
-});
-
-insert(db, {
-  quote:
-    "If you really look closely, most overnight successes took a long time.",
-  author: "Steve Jobs",
-});
-
-insert(db, {
-  quote:
-    "If you are not willing to risk the usual, you will have to settle for the ordinary.",
-  author: "Jim Rohn",
-});
-
-insert(db, {
-  quote: "You miss 100% of the shots you don't take",
-  author: "Wayne Gretzky - Michael Scott",
-});
-```
-
-After the data has been inserted, you can finally start to query the database.
-
-```js
-const searchResult = search(db, {
-  term: "if",
-  properties: "*",
-});
-```
-
-In the case above, you will be searching for all the documents containing the
-word `if`, looking up in every schema property (AKA index):
-
-```js
-{
-  elapsed: 99, // elapsed time is in microseconds
-  hits: [
-    {
-      id: 'ckAOPGTA5qLXx0MgNr1Zy',
-      quote: 'If you really look closely, most overnight successes took a long time.',
-      author: 'Steve Jobs'
-    },
-    {
-      id: 'fyl-_1veP78IO-wszP86Z',
-      quote: 'If you are not willing to risk the usual, you will have to settle for the ordinary.',
-      author: 'Jim Rohn'
-    }
-  ],
-  count: 2
-}
-```
-
-You can also restrict the lookup to a specific property:
-
-```js
-const searchResult = search(db, {
-  term: "Michael",
-  properties: ["author"],
-});
-```
-
-Result:
-
-```js
-{
-  elapsed: 111,
-  hits: [
-    {
-      id: 'L1tpqQxc0c2djrSN2a6TJ',
-      quote: "You miss 100% of the shots you don't take",
-      author: 'Wayne Gretzky - Michael Scott'
-    }
-  ],
-  count: 1
-}
-```
-
-If needed, you can also delete a given document by using the `remove` method:
-
-```js
-remove(db, "L1tpqQxc0c2djrSN2a6TJ");
-```
-
-# License
-
-Lyra is licensed under the [Apache 2.0](/LICENSE.md) license.
