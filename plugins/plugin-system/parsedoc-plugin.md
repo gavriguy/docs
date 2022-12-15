@@ -55,7 +55,7 @@ An asynchronous function that takes three arguments:
 * `db`: the database to populate.
 * `globPath`: a string representing a glob path to reading the files from.
 * `options`: an object containing the following properties:
-  * `transformFn` (optional): a function that passes an object as its only argument. It should contain the raw HTML/Markdown chunk, tag name, and parsed content.
+  * `transformFn` (optional): a function that passes an object as its only argument. It contains the raw HTML/Markdown chunk, tag name, parsed content and html attributes.
   * `mergeStrategy` (optional): a value that defines how to handle consecutive chunks of the same tag. The default value is `merge`. Accepted values are:
     * `merge`: consecutive chunks with the same tag will be merged into one document for the index.
     * `split`: consecutive chunks with the same tag will be split into separate documents for the index.
@@ -69,7 +69,7 @@ A function that takes three arguments. Should be used internally by `populateFro
 * `data`: raw HTML/Markdown string or Buffer.
 * `fileType`: a string representing the file type. Accepted values are `html` and `md`.
 * `options`: an object containing the following properties:
-  * `transformFn` (optional): a function that passes an object as its only argument. It should contain the raw HTML/Markdown chunk, tag name, and parsed content.
+  * `transformFn` (optional): a function that passes an object as its only argument. It contains the raw HTML/Markdown chunk, tag name, parsed content and html attributes.
   * `mergeStrategy` (optional): a value that defines how to handle consecutive chunks of the same tag. The default value is `merge`. Accepted values are:
     * `merge`: consecutive chunks with the same tag will be merged into one document for the index.
     * `split`: consecutive chunks with the same tag will be split into separate documents for the index.
