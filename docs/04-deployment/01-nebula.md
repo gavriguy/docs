@@ -89,6 +89,7 @@ deploy:
   platform: cloudflare
   configuration:
     workerName: "<worker>" # Name of the worker to deploy to
+    useWorkerDomain: true # Optional, if to use custom domains for the worker
     r2: "[bucket]" # Optional, name of R2 bucket where to store the data
     kv: "[namespace]" # Optional, name of KV namespace where to store the data
 ```
