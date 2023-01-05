@@ -1,8 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -10,21 +5,16 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Lyra✨",
   tagline: "An immutable, edge, full-text search engine",
-  url: "https://docs.lyrajs.io",
+  url: "https://docs.lyrasearch.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "/img/lyra.svg",
   deploymentBranch: "gh-pages",
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "nearform", // Usually your GitHub org/user name.
-  projectName: "lyra", // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // organizationName: "nearform", // Usually your GitHub org/user name.
+  // projectName: "lyra", // Usually your repo name.
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -36,10 +26,8 @@ const config = {
       ({
         docs: {
           sidebarPath: "./sidebars.js",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/LyraSearch/docs/edit/main/",
-          routeBasePath: '/', // Set this value to '/'.
+          sidebarCollapsible: false,
+          routeBasePath: "/",
         },
         blog: false,
         theme: {
@@ -58,80 +46,43 @@ const config = {
         },
         items: [
           {
-            type: "doc",
-            docId: "introduction/getting-started",
-            position: "left",
-            label: "Getting Started",
-          },
-          {
-            href: "/category/plugins",
-            position: "left",
-            label: "Plugins",
-          },
-          {
-            href: "/demo",
-            position: "left",
-            label: "Live Demo",
-            "aria-label": "Live Demo",
-          },
-          {
             href: "https://github.com/nearform/lyra",
             position: "right",
-            className: "header-github-link",
+            label: "GitHub",
             "aria-label": "Lyra on GitHub",
+          },
+          {
+            href: "https://join.slack.com/t/lyrasearch/shared_invite/zt-1gzvj0mmt-yJhJ6pnrSGuwqPmPx9uO5Q",
+            position: "right",
+            label: "Slack",
+            "aria-label": "Lyra on Slack",
           },
         ],
       },
       metadata: [
         {
           name: "og:image",
-          content: "https://nearform.github.io/lyra/img/ogimg.png",
+          content: "https://lyrasearch.io/images/og-image.png",
         },
         {
           name: "og:title",
           content: "Lyra, a fast, in-memory, typo-tolerant, full-text search engine written in TypeScript.",
         },
       ],
-      // algolia: {
-      //   appId: "lyra",
-      //   contextualSearch: true,
-      // },
       footer: {
         style: "light",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Getting Started",
-                to: "/",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "GitHub",
-                href: "https://github.com/nearform/lyra",
-              },
-            ],
-          },
-        ],
-        logo: {
-          alt: "Lyra Logo",
-          src: "/img/lyra.svg",
-        },
         copyright: `Copyright © ${new Date().getFullYear()}\n Made by NearForm with ❤️`,
       },
       colorMode: {
         defaultMode: "dark",
+        disableSwitch: true,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
+  plugins: ["@lyrasearch/plugin-docusaurus"],
 };
 
 module.exports = config;
