@@ -5,6 +5,10 @@ sidebar_position: 1
 
 # Getting Started with Lyra
 
+:::caution migrating to v0.4.0
+Version `v0.4.0` is a major release that introduces breaking changes. Please read the [migration guide](/migrating-to-v0.4.0) before upgrading.
+:::
+
 Lyra is an **immutable, runtime-agnostic, edge, and in-memory full-text search engine** that works both on client and server.
 
 Through implementing an optimized prefix tree and some clever tweaks, Lyra can perform searches through millions of entries in **microseconds**.
