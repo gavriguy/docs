@@ -12,15 +12,15 @@ description: >-
 
 You can install the plugin using any major Node.js/Bun package manager:
 
-```bash
+```bash title="Using npm"
 npm install --save @lyrasearch/plugin-parsedoc
 ```
 
-```bash
+```bash title="Using pnpm"
 pnpm add @lyrasearch/plugin-parsedoc
 ```
 
-```bash
+```bash title="Using yarn"
 yarn add @lyrasearch/plugin-parsedoc
 ```
 

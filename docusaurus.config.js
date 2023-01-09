@@ -9,12 +9,12 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "/img/lyra.svg",
+  favicon: "/img/black-hole-light.svg",
   deploymentBranch: "gh-pages",
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  // organizationName: "nearform", // Usually your GitHub org/user name.
-  // projectName: "lyra", // Usually your repo name.
+  organizationName: "lyrasearch", // Usually your GitHub org/user name.
+  projectName: "lyra", // Usually your repo name.
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -23,7 +23,7 @@ const config = {
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: "./sidebars.js",
           sidebarCollapsible: false,
@@ -45,7 +45,7 @@ const config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
-      }),
+      },
     ],
   ],
   themeConfig:
@@ -88,7 +88,7 @@ const config = {
       ],
       footer: {
         style: "light",
-        copyright: `Copyright © ${new Date().getFullYear()}\n`,
+        copyright: `Copyright © ${new Date().getFullYear()}\n Lyra`,
       },
       colorMode: {
         defaultMode: "dark",
