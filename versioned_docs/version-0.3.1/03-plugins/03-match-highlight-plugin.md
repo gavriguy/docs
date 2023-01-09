@@ -26,13 +26,9 @@ pnpm add @lyrasearch/plugin-match-highlight
 
 ## Usage
 
-Plugin usage depends on the runtime that you are using, even though the goal is
-to expose the exact same APIs for browsers, Deno, and all the other JavaScript
-engines.
+Plugin usage depends on the runtime that you are using, even though the goal is to expose the exact same APIs for browsers, Deno, and all the other JavaScript engines.
 
-The plugin exports `afterInsertHook`, which will be the hook used by Lyra to add
-positions, and `searchWithHighlight` which wraps the original Lyra's `search`
-function to return positions alongside docs.
+The plugin exports `afterInsertHook`, which will be the hook used by Lyra to add positions, and `searchWithHighlight` which wraps the original Lyra's `search` function to return positions alongside docs.
 
 ```typescript
 import { afterInsert, LyraWithHighlight, searchWithHighlight } from "../src";
@@ -41,10 +37,7 @@ const schema = {
   text: "string",
 } as const;
 
-const db = await create({
-  schema,
-  hooks: { afterInsert },
-}) as LyraWithHighlight<typeof schema>;
+const db = create({ schema, hooks: { afterInsert } }) as LyraWithHighlight<typeof schema>;
 
 insertWithHooks(db, { text: "hello world" });
 
@@ -53,11 +46,9 @@ const results = searchWithHighlight(db, "hello");
 
 ## API Reference
 
-#### `searchWithHighlight` [​](https://deploy-preview-8--lyra-docs.netlify.app/plugins/plugin-match-highlight#searchwithhighlight) <a href="#searchwithhighlight" id="searchwithhighlight"></a>
+#### `searchWithHighlight`[​](https://deploy-preview-8--lyra-docs.netlify.app/plugins/plugin-match-highlight#searchwithhighlight) <a href="#searchwithhighlight" id="searchwithhighlight"></a>
 
-A function that takes the same arguments as the original `search` function, and
-returns the document with positions for each token on each property matching the
-query.
+A function that takes the same arguments as the original `search` function, and returns the document with positions for each token on each property matching the query.
 
 ```typescript
 [
@@ -73,4 +64,5 @@ query.
   },
   ...
 ]
+
 ```

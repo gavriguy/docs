@@ -28,6 +28,18 @@ const config = {
           sidebarPath: "./sidebars.js",
           sidebarCollapsible: false,
           routeBasePath: "/",
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: 'v.0.4.0',
+              badge: false,
+              banner: 'none'
+            },
+            '0.3.1': {
+              label: 'v.0.3.1',
+              badge: true,
+            }
+          },
         },
         blog: false,
         theme: {
@@ -56,6 +68,10 @@ const config = {
             position: "right",
             label: "Slack",
             "aria-label": "Lyra on Slack",
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
           },
         ],
       },

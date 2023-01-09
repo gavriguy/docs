@@ -12,7 +12,7 @@ Let's say we have a database that contains some elements:
 ```javascript
 import { create, insert, search } from "@lyrasearch/lyra";
 
-const movieDB = await create({
+const movieDB = create({
   schema: {
     title: "string",
     director: "string",
@@ -22,7 +22,7 @@ const movieDB = await create({
   },
 });
 
-await insert(movieDB, {
+insert(movieDB, {
   title: "The prestige",
   director: "Christopher Nolan",
   plot:
@@ -31,7 +31,7 @@ await insert(movieDB, {
   isFavorite: true,
 });
 
-await insert(movieDB, {
+insert(movieDB, {
   title: "Big Fish",
   director: "Tim Burton",
   plot:
@@ -40,7 +40,7 @@ await insert(movieDB, {
   isFavorite: true,
 });
 
-await insert(movieDB, {
+insert(movieDB, {
   title: "Harry Potter and the Philosopher's Stone",
   director: "Chris Columbus",
   plot:
@@ -55,7 +55,7 @@ await insert(movieDB, {
 We can now search for one (or multiple) documents as easily as:
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Harry",
   properties: "*",
 });
@@ -72,7 +72,7 @@ properties (filters), to **"tighten"** or **"loosen"** our query.
 The `term` property specifies the `word` to be searched.
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Chris",
 });
 ```
@@ -84,7 +84,7 @@ We are now searching for all the documents that contain the word `Chris`.
 The `properties` property defines in which property to run our query.
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Chris",
   properties: ["director"],
 });
@@ -96,7 +96,7 @@ We are now searching for all the documents that contain the word `Chris` in the
 We can also search through nested properties:
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Chris",
   properties: ["cast.director"],
 });
@@ -134,7 +134,7 @@ Levenshtein algorithm) between the term and the searchable property.
 > substitutions) required to change one word into the other._
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Cris",
   properties: ["director"],
   tolerance: 1,
@@ -152,7 +152,7 @@ will have priority. :::
 The `limit` property limits the result at the specified number.
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Chris",
   properties: ["director"],
   limit: 1,
@@ -167,7 +167,7 @@ We are searching for the `first` document that contains the term `Chris` in the
 The `offset` property skips the first `X` results.
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Chris",
   properties: ["director"],
   offset: 1,
@@ -188,7 +188,7 @@ briefly analyze the response that Lyra gives us back.
 Let's say we have run the following query:
 
 ```javascript
-const searchResult = await search(movieDB, {
+const searchResult = search(movieDB, {
   term: "Cris",
   properties: ["director"],
   tolerance: 1,

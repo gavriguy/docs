@@ -6,7 +6,7 @@ following database with the following inserted documents:
 ```javascript
 import { create, insert, remove, search } from "@lyrasearch/lyra";
 
-const movieDB = await create({
+const movieDB = create({
   schema: {
     title: "string",
     director: "string",
@@ -16,7 +16,7 @@ const movieDB = await create({
   },
 });
 
-const { id: thePrestige } = await insert(movieDB, {
+const { id: thePrestige } = insert(movieDB, {
   title: "The prestige",
   director: "Christopher Nolan",
   plot:
@@ -25,7 +25,7 @@ const { id: thePrestige } = await insert(movieDB, {
   isFavorite: true,
 });
 
-const { id: bigFish } = await insert(movieDB, {
+const { id: bigFish } = insert(movieDB, {
   title: "Big Fish",
   director: "Tim Burton",
   plot:
@@ -34,7 +34,7 @@ const { id: bigFish } = await insert(movieDB, {
   isFavorite: true,
 });
 
-const { id: harryPotter } = await insert(movieDB, {
+const { id: harryPotter } = insert(movieDB, {
   title: "Harry Potter and the Philosopher's Stone",
   director: "Chris Columbus",
   plot:
@@ -49,7 +49,7 @@ const { id: harryPotter } = await insert(movieDB, {
 To delete a single document from the database we use the:
 
 ```javascript
-await remove(movieDB, harryPotter);
+remove(movieDB, harryPotter);
 ```
 
 As simple as that.

@@ -8,7 +8,7 @@ Let's say our database and schema look like this:
 ```javascript
 import { create, insert } from "@lyrasearch/lyra";
 
-const movieDB = await create({
+const movieDB = create({
   schema: {
     title: "string",
     director: "string",
@@ -19,16 +19,15 @@ const movieDB = await create({
 });
 ```
 
-:::info
-Notice that we are now also importing the `insert` method to do our insertions.
-:::
+:::info Notice that we are now also importing the `insert` method to do our
+insertions. :::
 
 ## Insert
 
 Data insertion in Lyra is quick and intuitive:
 
 ```javascript
-const { id: thePrestige } = await insert(movieDB, {
+const { id: thePrestige } = insert(movieDB, {
   title: "The prestige",
   director: "Christopher Nolan",
   plot:
@@ -37,7 +36,7 @@ const { id: thePrestige } = await insert(movieDB, {
   isFavorite: true,
 });
 
-const { id: bigFish } = await insert(movieDB, {
+const { id: bigFish } = insert(movieDB, {
   title: "Big Fish",
   director: "Tim Burton",
   plot:
@@ -46,7 +45,7 @@ const { id: bigFish } = await insert(movieDB, {
   isFavorite: true,
 });
 
-const { id: harryPotter } = await insert(movieDB, {
+const { id: harryPotter } = insert(movieDB, {
   title: "Harry Potter and the Philosopher's Stone",
   director: "Chris Columbus",
   plot:
@@ -112,7 +111,7 @@ With that being said, let's consider the following schema:
 ```javascript
 import { create } from "@lyrasearch/lyra";
 
-const db = await create({
+const db = create({
   schema: {
     author: "string",
     quote: "string",
@@ -137,7 +136,7 @@ In fact, it is possible to rewrite the schema definition above as follows:
 ```javascript
 import { create } from "@lyrasearch/lyra";
 
-const db = await create({
+const db = create({
   schema: {
     author: "string",
     quote: "string",
@@ -178,57 +177,3 @@ or even documents with different shapes:
 of course, it will only be possible to perform search operations on **known
 properties**, in that case, `author` and `quote`, which will always need to be
 of type `string` (as stated during the schema definition).
-
-## Custom document IDs
-
-Starting from `v0.4.0`, Lyra automatically uses the `id` field of the document ad `id`, if found.
-
-That means that given the following document and schema:
-
-```js
-import { create, search } from "@lyrasearch/lyra";
-
-const db = await create({
-  schema: {
-    id: "string",
-    author: "string",
-    quote: "string",
-  },
-});
-
-await insert(db, {
-  id: "73cbcc79-2203-49b8-bb52-60d8e9a66c5f",
-  author: "Fernando Pessoa",
-  quote: "I wasn't meant for reality, but life came and found me"
-});
-```
-
-the document will be indexed with the following `id`: `73cbcc79-2203-49b8-bb52-60d8e9a66c5f`.
-
-:::info default ID
-If the `id` field is not found, Lyra will generate a random `id` for the document.
-:::
-
-You can always set a custom ID programmatically by using the `insert` configuration object:
-
-```js
-const document = {
-  id: "73cbcc79-2203-49b8-bb52-60d8e9a66c5f",
-  author: "Fernando Pessoa",
-  quote: "I wasn't meant for reality, but life came and found me"
-}
-
-const insertConfig = {
-  id: (doc /* the full document */) => {
-    return author.toLowerCase().replace(/\s/g, "-");
-  }
-}
-
-await insert(db, document, insertConfig);
-```
-
-in that case, the document will be indexed with the following `id`: `fernando-pessoa`.
-
-:::warning duplicate IDs
-If you try to insert two documents with the same ID, Lyra will throw an error.
-:::
