@@ -54,7 +54,8 @@ const config = {
       navbar: {
         logo: {
           alt: "Lyra Logo",
-          src: "/img/lyra.svg",
+          src: "/img/lyra-logo-dark.png",
+          srcDark: "/img/lyra-logo-white.svg",
         },
         items: [
           {
@@ -87,11 +88,11 @@ const config = {
       ],
       footer: {
         style: "light",
-        copyright: `Copyright © ${new Date().getFullYear()}\n Made by NearForm with ❤️`,
+        copyright: `Copyright © ${new Date().getFullYear()}\n`,
       },
       colorMode: {
         defaultMode: "dark",
-        disableSwitch: true,
+        disableSwitch: false,
       },
       prism: {
         theme: lightCodeTheme,

@@ -50,7 +50,9 @@ insert(movieDB, {
 });
 ```
 
-:::info Notice that we are also importing the `search` method :::
+:::info
+Notice that we are also importing the `search` method
+:::
 
 We can now search for one (or multiple) documents as easily as:
 
@@ -144,8 +146,10 @@ const searchResult = search(movieDB, {
 We are searching for all the documents that contain a term with an edit distance
 of `1` (e.g. `Chris`) in the `director` property.
 
-:::warning `Tolerance` doesn't work together with the `exact` parameter. `Exact`
-will have priority. :::
+:::warning
+`Tolerance` doesn't work together with the `exact` parameter. `Exact`
+will have priority.
+:::
 
 ### Results limits
 
@@ -177,8 +181,10 @@ const searchResult = search(movieDB, {
 We are searching for all the documents that contains the term `Chris` in the
 `director` property, but returning the document at offset `1`.
 
-:::info By default, Lyra limits the search results to `10`, without any offset
-(so, `0` as offset value). :::
+:::info
+By default, Lyra limits the search results to `10`, without any offset
+(so, `0` as offset value).
+:::
 
 ## What does the `search` method return?[​](https://docs.lyrasearch.io/usage/search-data#what-does-the-search-method-return) <a href="#what-does-the-search-method-return" id="what-does-the-search-method-return"></a>
 

@@ -19,8 +19,10 @@ const movieDB = create({
 });
 ```
 
-:::info Notice that we are now also importing the `insert` method to do our
-insertions. :::
+:::info
+Notice that we are now also importing the `insert` method to do our
+insertions.
+:::
 
 ## Insert
 

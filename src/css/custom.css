@@ -1,14 +1,20 @@
 :root {
+  --ifm-color-primary: #7118f7;
+  --ifm-color-primary-dark: #6308ec;
+  --ifm-color-primary-darker: #5d08df;
+  --ifm-color-primary-darkest: #4d06b7;
+  --ifm-color-primary-light: #8132f8;
+  --ifm-color-primary-lighter: #893ff8;
+  --ifm-color-primary-lightest: #a167fa;
 }
-
-[data-theme="dark"] {
-  --ifm-color-primary: rgb(178, 165, 255);
-  --ifm-link-color: rgb(178, 165, 255);
-  --ifm-link-hover-color: rgb(136, 119, 235);
-  --ifm-navbar-link-color: rgb(178, 165, 255);
-  --ifm-navbar-link-hover-color: rgb(136, 119, 235);
-  --ifm-color-info-dark: rgb(52, 109, 219);
-  --ifm-code-background: var(--prism-background-color);
+[data-theme='dark'] {
+  --ifm-color-primary: #d5b3ff;
+  --ifm-color-primary-dark: #bd88ff;
+  --ifm-color-primary-darker: #b172ff;
+  --ifm-color-primary-darkest: #8d31ff;
+  --ifm-color-primary-light: #eddeff;
+  --ifm-color-primary-lighter: #f9f4ff;
+  --ifm-color-primary-lightest: #ffffff;
 }
 
 html {

@@ -44,7 +44,9 @@ const { id: harryPotter } = await insert(movieDB, {
 });
 ```
 
-:::info Notice that we are also importing the `remove` method. :::
+:::info
+Notice that we are also importing the `remove` method.
+:::
 
 To delete a single document from the database we use the:
 
