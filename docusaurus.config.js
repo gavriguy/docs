@@ -6,7 +6,7 @@ const config = {
   title: "Lyra✨",
   tagline: "An immutable, edge, full-text search engine",
   url: "https://docs.lyrasearch.io",
-  baseUrl: "/docs/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "/img/black-hole-light.svg",
