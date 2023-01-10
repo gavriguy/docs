@@ -11,10 +11,8 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   favicon: "/img/black-hole-light.svg",
   deploymentBranch: "gh-pages",
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "lyrasearch", // Usually your GitHub org/user name.
-  projectName: "lyra", // Usually your repo name.
+  organizationName: "lyrasearch",
+  projectName: "docs",
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -29,6 +27,7 @@ const config = {
           sidebarCollapsible: true,
           routeBasePath: "/",
           lastVersion: "current",
+          editUrl: "https://github.com/lyrasearch/docs/tree/main/",
           versions: {
             current: {
               label: 'v0.4.0',
@@ -55,7 +54,7 @@ const config = {
         },
         items: [
           {
-            href: "https://github.com/nearform/lyra",
+            href: "https://github.com/lyrasearch/lyra",
             position: "right",
             label: "GitHub",
             "aria-label": "Lyra on GitHub",
