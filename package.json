@@ -1,6 +1,6 @@
 {
-  "name": "docs",
-  "version": "0.0.0",
+  "name": "@lyrasearch/docs",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -12,41 +12,78 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "format": "prettier -w *.js *.cjs",
+    "lint": "eslint *.js *.cjs"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.14.0",
-    "@docusaurus/core": "2.0.1",
-    "@docusaurus/preset-classic": "2.0.1",
-    "@lyrasearch/lyra": "latest",
+    "@docusaurus/core": "^2.2.0",
+    "@docusaurus/preset-classic": "^2.2.0",
+    "@docusaurus/theme-common": "^2.2.0",
+    "@lyrasearch/plugin-docusaurus": "0.0.1",
     "@mdx-js/react": "^1.6.22",
-    "@nearform/lyra": "^0.1.1",
     "clsx": "^1.2.1",
     "prism-react-renderer": "^1.3.5",
-    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.1",
-    "@docusaurus/types": "2.0.1",
-    "@tsconfig/docusaurus": "^1.0.5",
-    "@types/react": "^18.0.0",
+    "@docusaurus/module-type-aliases": "^2.2.0",
+    "eslint": "^8.29.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^2.8.1",
     "typescript": "^4.7.4"
   },
   "browserslist": {
     "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 edge version"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "last 1 edge version"
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=16.0.0"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "@lyrasearch/plugin-docusaurus": {
+        "peerDependencies": {
+          "@docusaurus/theme-common": "*"
+        },
+        "dependencies": {
+          "@docusaurus/theme-common": "*"
+        }
+      },
+      "@docusaurus/preset-classic": {
+        "peerDependencies": {
+          "@docusaurus/theme-common": "*"
+        },
+        "dependencies": {
+          "@docusaurus/theme-common": "*"
+        }
+      },
+      "@docusaurus/theme-classic": {
+        "peerDependencies": {
+          "@docusaurus/theme-common": "*"
+        },
+        "dependencies": {
+          "@docusaurus/theme-common": "*"
+        }
+      }
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "algoliasearch"
+      ]
+    }
   }
 }
