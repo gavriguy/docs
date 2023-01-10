@@ -6,7 +6,7 @@ sidebar_position: 1
 # Getting Started with Lyra
 
 :::caution migrating to v0.4.0
-Version `v0.4.0` is a major release that introduces breaking changes. Please read the [migration guide](/migrating-to-v0.4.0) before upgrading.
+Version `v0.4.0` is a major release that introduces breaking changes. Please read the [migration guide](/migration-guide/breaking-changes) before upgrading.
 :::
 
 Lyra is an **immutable, runtime-agnostic, edge, and in-memory full-text search engine** that works both on client and server.

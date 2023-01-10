@@ -129,6 +129,10 @@ footer {
   }
 }
 
+.navbar__logo {
+  padding: 5px;
+}
+
 /* Search Plugin*/
 /*
 .aa-Form:focus-within {

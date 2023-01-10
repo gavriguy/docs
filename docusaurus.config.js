@@ -26,7 +26,7 @@ const config = {
       {
         docs: {
           sidebarPath: "./sidebars.js",
-          sidebarCollapsible: false,
+          sidebarCollapsible: true,
           routeBasePath: "/",
           lastVersion: "current",
           versions: {
