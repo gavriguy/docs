@@ -19,7 +19,6 @@ jobs:
           node-version: "12"
       - name: Build Docusaurus website
         run: |
-          cd website
           npm install 
           npm run build
       - name: Deploy to GitHub Pages
