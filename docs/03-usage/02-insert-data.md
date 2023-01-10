@@ -212,7 +212,7 @@ If the `id` field is not found, Lyra will generate a random `id` for the documen
 You can always set a custom ID programmatically by using the `insert` configuration object:
 
 ```js
-const document = {
+const myDocument = {
   id: "73cbcc79-2203-49b8-bb52-60d8e9a66c5f",
   author: "Fernando Pessoa",
   quote: "I wasn't meant for reality, but life came and found me"
@@ -224,7 +224,7 @@ const insertConfig = {
   }
 }
 
-await insert(db, document, insertConfig);
+await insert(db, myDocument, insertConfig);
 ```
 
 in that case, the document will be indexed with the following `id`: `fernando-pessoa`.

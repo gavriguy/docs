@@ -31,13 +31,9 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: 'v.0.4.0',
+              label: 'v0.4.0',
               badge: false,
               banner: 'none'
-            },
-            '0.3.1': {
-              label: 'v.0.3.1',
-              badge: true,
             }
           },
         },
